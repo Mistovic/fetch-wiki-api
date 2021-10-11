@@ -48,21 +48,4 @@ function getPage(url) {
 			console.log(err);
 			pageContent.innerHTML = "There was an network error! Pleas try again later."
 		})
-
-
-	// -- Response content
-	// const _dataText = _json.parse.text["*"];
-	// console.log(_dataText);
-	// return _dataText;
-	// pageContent.innerHTML = dataText
-}
-
-function setBumperTop() {
-	const _header = document.querySelector('.header');
-	const _body = document.querySelector('body');
-
-	const _headerheight = _header.offsetHeight;
-
-	_body
-	console.log(_headerheight);
 }
