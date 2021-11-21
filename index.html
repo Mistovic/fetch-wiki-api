@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	<!-- Styling -->
+	<link rel="stylesheet" href="css/main.css">
+	<title>Assigment</title>
+</head>
+
+<body>
+	<div class="page">
+		<header class="header">
+			<div class="header__top">
+				<div class="header__left col ">
+					<ul class="nav-list breadcrumbs d-flex ">
+						<li>
+							<a href="#" class="">Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="">Main</a>
+						</li>
+
+						<li>
+							<a href="#" class="active">Home</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="header__right col">
+					<form class="header__search-form" action="">
+						<label class="header__search-label" for="search-input">
+							<span class="header__search-icon">
+								<img src="img/search-solid.svg" alt="">
+							</span>
+							<input id="search-input" type="text">
+						</label>
+
+						<button class="btn btn--search" type="submit">Search</button>
+					</form>
+					<!-- END search form -->
+				</div>
+			</div>
+			<!-- END .header__top -->
+
+			<div class="header__bot">
+
+				<a href="#" class="header__logo">
+					Wiki
+				</a>
+
+				<button id="menuToggler" class="hamburger-btn">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+
+				<nav class="header__navigation">
+					<ul class="nav-list header__list d-flex">
+						<li>
+							<a href="#">Welcome Peldi</a>
+						</li>
+
+						<li>
+							<a href="#">History</a></a>
+						</li>
+
+						<li>
+							<a href="#">Preferences</a>
+						</li>
+
+						<li>
+							<a href="#">Administration</a>
+						</li>
+
+						<li>
+							<a href="#">Logout</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<img src="img/file-alt-solid.svg" alt="">
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- END .header__navigation -->
+			</div>
+		</header>
+		<!-- END HeaderF -->
+
+		<div class="content-wrapper d-flex">
+			<aside class="aside">
+				<nav>
+					<ul class="aside__nav">
+						<li>
+							<a href="#">Page Operations</a>
+						</li>
+
+						<li>
+							<a href="#">Browse Space</a>
+						</li>
+
+						<li>
+							<a href="#">Add Content</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main class="main">
+				<div class="main__top-bar d-flex">
+					<span>Main</span>
+
+					<ul class="main-actions d-flex">
+						<li>
+							<a href="#">
+								<img src="img/flag-solid.svg" alt="">
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<img src="img/envelope-solid.svg" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Main content area -->
+				<section id="pageContent">
+					<h1>Welcome to our wiki</h1>
+					<p>Added by Peldi, last edited on mar 09, 2008 ( <a href="#">view changes</a> )</p>
+				</section>
+
+				<div class="sublist d-flex">
+					<ul class="nav-list d-flex">
+						<li>
+							10 Children
+						</li>
+
+						<li>
+							<a href="#">Show Children</a>
+						</li>
+
+						<li>
+							<a href="#">View in Hierarchy</a>
+						</li>
+						<li>
+							<a href="#">Show Children</a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Comment area -->
+				<div class="comment-section">
+					<div class="comment-section__top">
+						<span>0 comments</span>
+						<button class="btn--underline">Add comment</button>
+					</div>
+
+					<!-- Area where we display comments -->
+					<div class="comments">
+						<!-- comment list -->
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- Load sripts -->
+	<script src="js/app.js"></script>
+
+	<!-- Initialization -->
+	<script>
+		hamburgerMenu('.hamburger-btn', '.header__navigation');
+
+		// -- This data can be dynamic from input field
+		const _params = new URLSearchParams({
+			origin: "*",
+			action: "parse",
+			page: "63rd_Parachute_Brigade",
+			format: "json",
+		});
+
+		const _url = "https://en.wikipedia.org/w/api.php?" + _params;
+
+
+		getPage(_url);
+	</script>
+</body>
+
+</html>

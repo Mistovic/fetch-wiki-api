@@ -1,0 +1,465 @@
+/* Task 1 - Design */
+:root{
+	/* Colors */
+	--blue: rgb(61, 184, 255);
+	--sky-blue: rgb(182, 221, 255);
+	--gray: rgb(232, 241, 243);
+	--dark-gray: rgb(131, 131, 131);
+	--black: rgb(22, 22, 22);
+
+
+	/* Font sizes */
+	--sm: 1.4rem;
+	--md: 1.6rem;
+	--lg: 2.4rem;
+	--xl: 3.2rem;
+	--xxl: 4.5rem;
+
+	/* heading margins */
+	--sm-m: 1rem;
+	--md-m: 1.4rem;
+	--lg-m: 1.5rem;
+	--xl-m: 3.2rem;
+	--xxl-m: 4.5rem;
+
+	/* Icon size */
+	--icon: 15px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Lato", Arial, Helvetica, sans-serif;
+	font-size: var(--md);
+}
+
+h1, h2, h3, h5, h6 {
+	font-weight: 700;
+}
+
+h1 {
+	font-size: var(--xl);
+	margin-bottom: var(--xl-m);
+}
+
+h2 {
+	font-size: var(--lg);
+	margin-bottom: var(--lg-m);
+}
+
+h3 {
+	font-size: var(--lg);
+	margin-bottom: var(--lg-m);
+}
+
+ul {
+	list-style: none;
+}
+
+button {
+	font-family: "Lato", Arial, Helvetica, sans-serif;
+	font-size: var(--md);
+	appearance: none;
+	border: none;
+}
+
+input {
+	appearance: none;
+	border: none;
+}
+
+input:focus,
+button:focus  {
+	outline: none;
+}
+
+a,
+a:active,
+a:visited {
+	text-decoration: none;
+	color: var(--black);
+}
+a:hover {
+	text-decoration: underline;
+}
+a.active {
+	color: var(--dark-gray);
+}
+
+p {
+	margin-bottom: 1.5rem;
+}
+
+p:last-child{
+	margin-bottom: 0;
+}
+
+table {
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.page {
+	padding: 0px;
+}
+
+.d-flex {
+	display: flex;
+	width: 100%;
+}
+
+/* Header with navigation and searchbar */
+.header {
+	/* position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #fff; */
+}
+
+.header__top {
+	display: block;
+	padding: 10px;
+	background-color: var(--sky-blue);
+}
+
+.breadcrumbs {
+	font-size: var(--sm);
+	justify-content: center;
+}
+
+.breadcrumbs li:after{
+	content: '>'!important;
+}
+
+.breadcrumbs li:last-child::after{
+	content: ''!important;
+}
+
+.header__left  {
+	padding-bottom: 10px;
+}
+
+.col {
+	flex-grow: 1;
+}
+
+/* Search bar */
+.header__search-form {
+	text-align: center;
+}
+
+.header__search-label {
+	display: inline-block;
+	position: relative;
+}
+
+.header__search-icon {
+	position: absolute;
+	left: 7px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.header__search-label input {
+	padding: 5px 5px 5px 30px;
+	border: none;
+	border-radius: 20px;
+}
+
+.header__search-icon img {
+	display: block;
+	width: var(--icon);
+}
+
+.btn--search {
+	padding: 5px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.btn--underline {
+	padding: 0;
+	text-decoration: underline;
+	background-color: transparent;
+	margin-left: 10px;
+}
+
+/* Header bot */
+.header__bot {
+	display: block;
+	padding: 10px 10px 10px 10px;
+	position: relative;
+}
+
+.header__logo {
+	font-size: 45px;
+	text-decoration: none;
+	color: #000;
+}
+
+/* Hamburger menu with transition */
+.hamburger-btn {
+	position: absolute;
+	width: 30px;
+	height: 20px;
+	border: none;
+	right: 10px;
+	top: 25px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.hamburger-btn span:nth-child(1),
+.hamburger-btn span:nth-child(2),
+.hamburger-btn span:nth-child(3) {
+	display: block;
+	width: 100%;
+	height: 4px;
+	position: absolute;
+	background-color: var(--black);
+	transition: all 0.3s ease;
+}
+
+.hamburger-btn span:nth-child(1) {
+	top: 0;
+	left: 0;
+}
+.hamburger-btn span:nth-child(2) {
+	top: calc(50% - 2px);
+	left: 0;
+}
+.hamburger-btn span:nth-child(3) {
+	bottom: 0;
+	left: 0;
+}
+
+
+.hamburger-btn.active span:nth-child(1) {
+	top: 0;
+	left: 0;
+	transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+	top: calc(50% - 2px);
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.2s 0s;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+	bottom: 0;
+	left: 0;
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Drawer navigation */
+.header__navigation {
+	overflow: hidden;
+	margin-left: auto;
+}
+
+.header__list {
+	text-align: right;
+}
+
+.header__list {
+	display: block;
+	max-height: 0;
+	transition:  max-height 0.6s 0.0s ease-in-out;
+}
+
+.header__navigation.show .header__list {
+	max-height: 220px;
+}
+
+.header__list li a{
+	display: block;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.header__navigation.show {
+	display: block;
+}
+
+/* Horizontal nav list */
+.nav-list li {
+ 	padding: 0 10px 0;
+	position: relative;
+}
+
+.nav-list img {
+	display: block;
+	width: var(--icon);
+	margin-left: auto;
+}
+
+
+
+/* Main content area */
+.content-wrapper {
+	margin-top: -20px;
+	display: block;
+}
+
+.main {
+	flex-grow: 1;
+	padding: 20px;
+	background-color: var(--gray);
+}
+
+.main a {
+	word-break: break-word;
+}
+
+.main__top-bar {
+	font-size: var(--sm);
+}
+
+/* Aside content widget area */
+.aside {
+	padding: 20px 0 0px 0;
+}
+
+.aside__nav {
+	display: flex;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.aside__nav li{
+	padding: 10px;
+	background-color: var(--gray);
+	flex-grow: 1;
+}
+
+.aside__nav {
+	font-size: var(--sm);
+}
+
+.sublist {
+	margin-top: 20px;
+}
+/* Main section action bar */
+.main__top-bar {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.main-actions {
+	justify-content:flex-end;
+}
+.main-actions li{
+	padding-right: 10px;
+}
+.main-actions li:last-child{
+	padding-right: 0px;
+}
+.main-actions img{
+	width: var(--icon);
+}
+
+/* Comments section */
+.comment-section {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 2px solid var(--black);
+}
+/* Responsive small-screen*/
+@media screen and (min-width: 576px) {
+
+	.header__top {
+		display: flex;
+		align-items: center;
+	}
+
+	.header__left  {
+		padding-bottom: 0;
+	}
+
+	.breadcrumbs {
+		justify-content: flex-start;
+	}
+
+	.header__search-form {
+		text-align: right;
+	}
+
+	.content-wrapper {
+		display: flex;
+	}
+
+	.main {
+		border-top-left-radius: 20px;
+	}
+
+	.aside {
+		min-width: 150px;
+	}
+
+	.aside__nav {
+		display: block;
+		margin-bottom: 0;
+		font-size: var(--md);
+	} 
+
+
+	.aside__nav li {
+		margin-bottom: 10px;
+	}
+	.aside__nav li:last-child{
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	.header__bot {
+		display: flex;
+	}
+
+	.hamburger-btn {
+		display: none;
+	}
+
+	.header__navigation  {
+		display: block;
+	}
+
+	.header__list {
+		max-height: fit-content;
+		display: flex;
+		height: initial;
+	}
+
+	.nav-list li:not(:last-child)::after {
+		content: '|';
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: -1px;
+	}
+
+	.header__list li a{
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+@media screen and (min-width: 976px) {
+	section table{
+		float: right;
+		margin-bottom: 20px;
+		margin-left: 20px;
+	}
+}
